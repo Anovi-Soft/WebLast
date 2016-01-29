@@ -1,0 +1,104 @@
+﻿@using AnoviSoftSiteFun.Util
+@{
+    ViewBag.Title = "Album";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#00897B">
+    <meta name="msapplication-navbutton-color" content="#00897B">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#00897B">
+    @if (Request.Browser.IsMobileDevice)
+    {
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+    }
+    else
+    {
+        <meta name="viewport" content="width=device-width" />
+    }
+    @Styles.Render("~/Content/StyleFonts.css", "~/Content/StyleAlbum.css")
+    @if (new[] { "internetexplorer", "internet explorer", "ie" }.Contains(Request.Browser.Browser.ToLower()) && int.Parse(Request.Browser.Version.Split('.').First()) < 10)
+    {
+        @Styles.Render("~/Content/StyleBaseIE.css")
+    }
+    else
+    {
+        @Styles.Render("~/Content/StyleBase.css")
+    }
+    @Scripts.Render("~/Scripts/Cooker.js", "~/Scripts/Behavior.js", "~/Scripts/Album.js")
+    <link rel="shortcut icon" href="~/Content/Images/icon.ico">
+    <title>AnoviSoft - @ViewBag.Title</title>
+</head>
+<body id="baseBody"
+      onresize="Resize(); ResizeAlbum();" 
+      onload="Init(); InitAlbum({ 'Films': @Album.GetListOfFilseBigJS("Films"), 'Best': @Album.GetListOfFilseBigJS("Best") },
+       @((new[] {"internetexplorer", "internet explorer", "ie"}.Contains(Request.Browser.Browser.ToLower()) && int.Parse(Request.Browser.Version.Split('.').First()) < 9) ? "true" : "false")
+      );">
+    <div class="bbody" id="firstBack">
+    </div>
+    <div class="cbody" id="secondBack">
+    </div>
+    <!--COLUMN-->
+    <div id="center_column">
+        <div class="paper_group" id="ImagesDiv">
+            <div class="paper">
+                <div class="paper_up">
+                    <h2>Posters</h2>
+                </div>
+                @Html.Raw(Album.Photos("Films"))
+            </div>
+            <div class="paper">
+                <div class="paper_up">
+                    <h2>Pictures</h2>
+                </div>
+                @Html.Raw(Album.Photos("Best"))
+            </div>
+        </div>
+        <!--CONTACTINFO-->
+        @Html.Partial("SocPartial")
+        <footer>
+            <h3 class="copyRight">&copy; @DateTime.Now.Year - AnoviSoft</h3>
+        </footer>
+</div> 
+    <!--ALBUM-->
+    <div id="albumGrayBack" class="grayBackPair">
+        <div class="grayBack" id="gbLeft" onclick="Previos();" onmouseover="document.getElementById('leftAlbum').style.opacity = '0.6';" onmouseout="document.getElementById('leftAlbum').style.opacity = '0.2';">
+            <img id="leftAlbum" src="~/Content/Album/back.png" alt="" />
+        </div>
+        <div class="grayBack" id="gbRight" style="left: 50%;" onclick="Close();" onmouseover=" document.getElementById('rightAlbum').style.opacity='0.6' ;" onmouseout=" document.getElementById('rightAlbum').style.opacity='0.2' ;">
+            <img id="rightAlbum" src="~/Content/Album/close.png" alt="" />
+
+        </div>
+        <img id="loading" class="loading" alt="" src="~/Content/Images/load.png" />
+        <img id="content" class="bigPhoto cborder" alt="" onclick="Next();" />
+        <button id="buttonBack" class="bar_button setBackground" onclick="SetAsBackGround(this)"><h2>SetAsBackground</h2></button>
+    </div>  
+    <!--TOPBAR-->
+    <div class="top_bar" id="topBar">
+        <img class="labelImage border" style="left:0;top:0;" alt="" id="menuButton" src="/Content/Images/menu.png" />
+        @if (Request.IsAuthenticated)
+        {
+            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="toRightOnTopBar">
+                    <Button class="bar_button" style="padding: 0 5px 0 5px;" onclick="location.href = '/Manage/Index'">Manage</Button>
+                    <Button class="bar_button" style="padding: 0 5px 0 5px;" type="submit">Log out</Button>
+                </div>
+            }
+        }
+        else
+        {
+            <div class="toRightOnTopBar">
+                <Button class="bar_button" style="padding: 0 5px 0 5px;" onclick="location.href = '/Account/Register'">Reg</Button>
+                <Button class="bar_button" style="padding: 0 5px 0 5px;" onclick="location.href = '/Account/Login'">Auth</Button>
+            </div>
+        }
+    </div>
+    <!--MENU-->
+    @Html.Partial("MenuPartial")
+</body>
+</html>

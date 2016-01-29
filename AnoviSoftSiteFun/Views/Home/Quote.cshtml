@@ -1,0 +1,81 @@
+﻿@model MyBusinessCardSite.Models.QuoteModel
+@{
+    ViewBag.Title = "Quote";
+    ViewBag.QuoteId = Model.Id;
+    var ajaxOptions = new AjaxOptions
+    {
+        UpdateTargetId = "resultComment",
+        OnComplete = "document.getElementById('message').value = ''"
+    };
+    var quoteId = Model.Id;
+}
+<div class="paper_group">
+    <div class="paper">
+        <div class="paper_up">
+            <div class="row">
+                <div class="col-2-3">
+                    <h1>@Model.Author</h1>
+                </div>
+                <div class="col-1-6">
+                    <div id="likeField"></div>
+                </div>
+                <div class="col-1-6">
+                    <button class="bar_button" onclick="location.href = '@Model.Next'">Next</button>
+                </div>
+            </div>
+        </div>
+        <h3>@Model.Quote</h3>
+    </div>
+</div>
+<div id="resultComment"></div>
+<div class="paper_group">
+    <div class="paper">
+        @if (User.Identity.IsAuthenticated)
+        {
+            using (Ajax.BeginForm("AddAndGetComments", new { quoteId = Model.Id }, ajaxOptions))
+            {
+                <div class="paper_up">
+                    <div class="row">
+                        <div class="col-5-6">
+                            <h1>Add comment</h1>
+                        </div>
+                        <div class="col-1-8">
+                            <button class="bar_button" type="submit">Send</button>
+                        </div>
+                    </div>
+                </div>
+                <input type="text" id="message" name="message" class="text_box" />
+            }
+        }
+        else
+        {
+            <div class="paper_up">
+                <h1>Info</h1>
+            </div>
+            <h3>You must first login or create an account if you want to comment or like</h3>
+        }
+    </div>
+</div>
+<div class="paper_group">
+    <div class="paper">
+        <div class="paper_up">Download All Quotes</div>
+        <b>@Html.ActionLink("Download", "GetAllQuotes", "Home")</b>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+    $(document).ready(UpdateComments);
+    function UpdateComments()
+    {
+        $("#resultComment").load('@(Url.Action("GetComments", "Home",null, Request.Url.Scheme))?quoteId=' + @quoteId);
+        $("#likeField").load('@(Url.Action("GetLikes", "Home",null, Request.Url.Scheme))?quoteId=' + @quoteId);
+        setTimeout(UpdateComments, 5000);
+    }
+    function DownloadAllQuotes() {
+        $.ajax({
+            url:"you url for generation"
+        }).success(function(data){ location = data; });
+    }
+
+</script> 

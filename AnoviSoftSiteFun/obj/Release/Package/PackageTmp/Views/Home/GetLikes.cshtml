@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNet.Identity
+@using AnoviSoftSiteFun.Models
+@model LikesModel
+
+
+@{
+    var userId = User.Identity.GetUserId();
+}
+<h2>
+    <b style="font: 50px italic">
+        @if (User.Identity.IsAuthenticated)
+        {
+            if (Model.Likes.All(x => x.UserId != userId))
+            {
+
+                @Ajax.ActionLink("♡", "Like",
+                new { quoteId = Model.QuoteId },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "likeField"
+                })
+            }
+            else
+            {
+                @Ajax.ActionLink("💙", "Dislike",
+                new { quoteId = Model.QuoteId },
+                new AjaxOptions
+                {
+                    UpdateTargetId = "likeField"
+                })
+            }
+        }
+        else
+        {
+            <i>♡</i>
+        }
+    </b>
+    @Model.Likes.Count()
+</h2>

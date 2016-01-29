@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Connection String used in web.config by the application to access the database." defaultValue="Data Source=tradehistoryserver.database.windows.net;Initial Catalog=BtceTradeHistory;User ID=L0dom;Password=1@3$qWeR;Connect Timeout=60" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrew\\Documents\\GitHub\\WebLast\\AnoviSoftSiteFun\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="BtceTradeHistoryConnectionString-Web.config Connection String" description="BtceTradeHistoryConnectionString Connection String used in web.config by the application to access the database." defaultValue="Data Source=tradehistoryserver.database.windows.net;Initial Catalog=BtceTradeHistory;User ID=L0dom;Password=1@3$qWeR;Connect Timeout=60" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Andrew\\Documents\\GitHub\\WebLast\\AnoviSoftSiteFun\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BtceTradeHistoryConnectionString']/@connectionString" />
+  </parameter>
+</parameters>

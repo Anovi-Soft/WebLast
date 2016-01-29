@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="theme-color" content="#00897B">
+    <meta name="msapplication-navbutton-color" content="#00897B">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#00897B">
+    @if (Request.Browser.IsMobileDevice)
+    {
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+    }
+    else
+    {
+        <meta name="viewport" content="width=device-width" />
+    }
+    @Styles.Render("~/Content/StyleFonts.css")
+    @if (new[] { "internetexplorer", "internet explorer", "ie" }.Contains(Request.Browser.Browser.ToLower()) && int.Parse(Request.Browser.Version.Split('.').First()) < 10)
+    {
+        @Styles.Render("~/Content/StyleBaseIE.css")
+    }
+    else
+    {
+        @Styles.Render("~/Content/StyleBase.css")
+    }
+    @Scripts.Render("~/Scripts/Cooker.js", "~/Scripts/Behavior.js", "~/Scripts/jquery-2.2.0.js", "~/Scripts/jquery.unobtrusive-ajax.js")
+    <link rel="shortcut icon" href="~/Content/Images/icon.ico">
+    <title>AnoviSoft - @ViewBag.Title</title>
+</head>
+<body id="baseBody" onload="Init();" onresize="Resize();">
+    <div class="bbody" id="firstBack">
+    </div>
+    <div class="cbody" id="secondBack">
+    </div>
+    <!--COLUMN-->
+    <div id="center_column">
+        @RenderBody()
+        <!--CONTACTINFO-->
+        @Html.Partial("SocPartial")
+        <footer>
+            <h3 class="copyRight">&copy; @DateTime.Now.Year - AnoviSoft</h3>
+        </footer>
+    </div>
+    <!--TOPBAR-->
+    <div class="top_bar" id="topBar">
+        <img class="labelImage border" style="left:0;top:0;" alt="" id="menuButton" src="/Content/Images/menu.png" />
+        @Html.Partial("_LoginPartial")
+    </div>
+    <!--MENU-->
+        @Html.Partial("MenuPartial")
+        @RenderSection("scripts", required: false)
+</body>
+</html>
+

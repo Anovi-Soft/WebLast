@@ -1,0 +1,26 @@
+﻿@model MyBusinessCardSite.Models.ContactModel
+
+@{
+    ViewBag.Title = "Thanks";
+}
+
+<div class="paper_group">
+    <div class="paper">
+        @{
+            if (Model.SendMessage())
+            {
+                <div class="paper_up">
+                    <h2>Thank</h2>
+                </div>
+                    <h3>Thank you @Model.Name. You message important for me</h3>
+            }
+            else
+            {
+                <div class="paper_up">
+                    <h2>Oops</h2>
+                </div>
+                    <h3>Sorry, @Model.Name i couldn't send the email.</h3>
+            }
+        }
+    </div>
+</div>

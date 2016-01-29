@@ -1,0 +1,357 @@
+﻿a {
+text-decoration: none; 
+} 
+* {
+    margin:0;
+    padding: 0;
+}
+body { 
+    background-image: url("images/background.png");
+    background-position: left bottom; 
+}
+.cbody {
+    background-image: url("images/cbackground.png");
+    background-position: left bottom;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    -ms-opacity: 0;
+    opacity: 0;
+}
+.bbody {
+    background-image: url("images/background.png");
+    background-position: left bottom;
+    position:fixed;
+    width: 100%;
+    height: 100%;
+    -ms-opacity: 0;
+}
+
+.border:hover {
+    border: 1px solid #ffffff;
+}
+.cborder:hover {
+    border: 1px solid #00897B;
+    background: #00897B;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cborder:active {
+    border: 1px solid #ffffff;
+    background: #00897B;
+    -ms-border-radius: 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+button.bar_button:hover {
+    border: 1px solid #ffffff;
+    cursor: pointer;
+}
+button.bar_button:active {
+    border: 2px solid #ffffff;
+    background: #000000;
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+
+.top_bar {
+    background: #00897B;
+    margin:0;
+    padding:0;
+    position: fixed;
+    height: 45px;
+    width: 100%;
+    -webkit-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+}
+
+
+.paper_up {
+    background: #00897B;
+    min-height: 45px;
+    height: auto;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    padding: 10px 25px 10px 25px;
+    margin: 0 -35px 20px -60px;
+}
+
+.field-validation-error {color: #00897B; }
+.field-validation-valid { display: none;}
+.input-validation-error { border: 1px solid #00897B;}
+.validation-summary-errors { font-weight: bold; color: #00897B;}
+.validation-summary-valid { display: none;}
+
+.toRightOnTop {
+    position: absolute;
+    right: 0;
+}
+
+.toRightOnTopBar {
+    position: fixed;
+    right: 0;
+    top:0;
+}
+h1 {
+    font: 35px RobotoBold;
+    color: #ffffff;
+}
+h2 {
+    font: 30px RobotoBold;
+    color: #ffffff;
+}
+h3 {
+    font: 25px RobotoBold;
+    margin: 0 0 0 -30px;
+    color: #00897B;
+}
+h4 {
+    font: 20px RobotoBold;
+    margin: 0 0 0 -20px;
+}
+div {
+    font: 20px RobotoBold
+}
+li {
+    font: 20px RobotoBold;
+}
+a {
+    font: 20px RobotoBold;
+}
+
+
+
+.row {
+  display: flex;
+  flex-flow: row wrap;
+}
+.row:last-child {
+  margin-bottom: 0;
+}
+[class*="col-"] {
+  padding: 0;
+  width: 100%;
+}
+.onRight {
+    right: 0;
+}
+
+@media all and ( min-width: 600px ) {
+
+    .col-1 {
+        width: 100%;
+        
+    }
+
+    .col-2-3 {
+        width: 66.66%;
+    }
+
+    .col-1-2 {
+        width: 50%;
+    }
+
+    .col-1-3 {
+        width: 33.33%;
+    }
+
+    .col-1-4 {
+        width: 25%;
+    }
+
+    .col-3-4 {
+        width: 75%;
+    }
+
+    .col-1-6 {
+        width: 16.66%;
+    }
+
+    .col-5-6 {
+        width: 83.33%;
+    }
+
+    .col-6-8 {
+        width: 75%;
+    }
+
+    .col-1-8 {
+        width: 12.5%;
+        float: left;
+
+    }
+
+    .col-1-10 {
+        width: 10%;
+    }
+
+    .col-1-12 {
+        width: 8.33%;
+    }
+
+    .col-1-16 {
+        width: 6.25%;
+    }
+}
+#center_column {
+    top: 45px;
+    left: -50%;
+    margin-left: -25%;
+    position: absolute;
+    width: 1000px;
+    max-width: 70%;
+}
+.paper_group {
+    background: #323232;
+    background: rgba(50, 50, 50, 0.75);
+    border: none;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+}
+
+.paper {
+    background: #e9e9e9;
+    border: 1px solid #1f1f1f;
+    -ms-border-radius: 5px;
+    border-radius: 5px;
+    -webkit-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    padding: 0 35px 25px 60px;
+    margin: 5px;
+    min-height: 170px;
+}
+
+
+
+.iconInfo {
+    font: 20px RobotoBold;
+    padding: 10px;
+}
+
+.socImg {
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+    padding: 5px;
+}
+
+
+button.leftMenuItem {
+    font: 22px RobotoBold;
+    color: #00897B;
+    background: #ffffff;
+    background: rgba(0,0,0,0);
+    border: 0;
+    padding: 10px 0 10px 0;
+    text-align: left;
+    width: 100%;
+    padding: 15px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    height: 60px;
+}
+
+button.leftMenuItem:hover {
+    border: 1px solid #00786b;
+    cursor: pointer;
+}
+button.leftMenuItem:active{
+    border: 1px solid #00786b;
+    background: rgba(0,0,0,0.2);
+    cursor: pointer;
+}
+
+button.bar_button {
+    font: 24px RobotoBold;
+    color: rgba(255,255,255,0.9);
+    background: rgba(0,0,0,0);
+    border: 0;
+    -webkit-border-radius: 2px;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    height: 45px;
+    padding: 0 20px;
+}
+
+.photo {
+    border: 1px solid #1f1f1f;
+    -ms-border-radius: 2px;
+    border-radius: 2px;
+    -webkit-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    margin: 5px;
+    width: 95%;
+    max-width: 500px;
+}
+
+.toLeftOnTop {
+    position: absolute;
+    left: 45px;
+}
+
+
+.labelImage {
+    position: absolute; 
+    width: 45px;
+    height: 45px;
+    left: 0;
+}
+
+
+
+.text_box {
+    border: 1px solid #b7b7b7;
+    -ms-border-radius: 3px;
+    border-radius: 3px;
+    font: 18px RobotoRegular;
+    width: 100%;
+    -moz-min-width: 100%;
+    -ms-min-width: 100%;
+    -o-min-width: 100%;
+    -webkit-min-width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: 25px;
+}
+
+.leftMenu {
+    position: fixed;
+    width: 200px;
+    height: 100%;
+    top: 45px;
+    left:-100%;
+    background: #e9e9e9;
+    -webkit-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 3px 3px 1px 0 rgba(0,0,0,0.3);
+    -ms-border-radius: 0 0 5px 0;
+    border-radius: 0 0 5px 0;
+    margin:0;
+    padding:0;
+}
+
+.gameObj {
+    
+}
+
+.gameObjText {
+    padding: 70px;
+}
+
+.copyRight {
+    text-align: center;
+    margin: 20px 0 50px 0;
+    color: #000000;
+}

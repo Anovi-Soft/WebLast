@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BtceTradeHistory" Class="QuoteDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=tradehistoryserver.database.windows.net;Initial Catalog=BtceTradeHistory;User ID=L0dom;Connect Timeout=60" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BtceTradeHistoryConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.It_Cuote" Member="ItQuotes">
+    <Type Name="ItQuote">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Author" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Cuote" Member="Quote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

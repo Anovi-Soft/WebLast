@@ -1,0 +1,92 @@
+﻿@model MyBusinessCardSite.Models.ContactModel
+@{
+    ViewBag.Title = "Contact";
+}
+
+<div class="paper_group">
+    @using (Html.BeginForm())
+    {
+        <div class="paper">
+            <div class="paper_up">
+                <div class="row">
+                    <div class="col-5-6">
+                        <h1>Write me on email</h1>
+                    </div>
+                    <div class="col-1-8">
+                        <button type="submit" class="bar_button">Send</button>
+                    </div>
+                </div>
+            </div>
+            @Html.ValidationSummary()
+            @if (new[] { "internetexplorer", "internet explorer", "ie" }.Contains(Request.Browser.Browser.ToLower()) && int.Parse(Request.Browser.Version.Split('.').First()) < 10)
+                {
+                <p class="row">
+                    <div class="col-1-4">
+                        <h4>*Your name:</h4>
+                    </div>
+                    <div class="col-3-4">@Html.TextBoxFor(x => x.Name, new { @class = "text_box" })</div><br>
+                </p>
+                <p class="row">
+                    <div class="col-1-4">
+                        <h4>*Your email:</h4>
+                    </div>
+                    <div class="col-3-4">@Html.TextBoxFor(x => x.Email, new { @class = "text_box" })</div><br>
+                </p>
+                    <p class="row">
+                        <div class="col-1-4">
+                            <h4> Your phone:</h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextBoxFor(x => x.Phone, new { @class = "text_box" })</div><br>
+                    </p>
+                    <p class="row">
+                        <div class="col-1-4">
+                            <h4> Subject: </h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextBoxFor(x => x.Title, new { @class = "text_box" })</div><br>
+                    </p>
+                    <p class="row">
+                        <div class="col-1-4">
+                            <h4>*Message: </h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextAreaFor(x => x.Text, new { @class = "text_box" })</div><br>
+                    </p>
+            }
+            else
+            {
+                <div class="row">
+                    <div class="col-1-4">
+                        <h4>*Your name:</h4>
+                    </div>
+                    <div class="col-3-4">@Html.TextBoxFor(x => x.Name, new { @class = "text_box" })</div><br>
+                </div>
+                <div class="row">
+                    <div class="col-1-4">
+                        <h4>*Your email:</h4>
+                    </div>
+                    <div class="col-3-4">@Html.TextBoxFor(x => x.Email, new { @class = "text_box" })</div><br>
+                </div>
+                    <div class="row">
+                        <div class="col-1-4">
+                            <h4> Your phone:</h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextBoxFor(x => x.Phone, new { @class = "text_box" })</div><br>
+                    </div>
+                    <div class="row">
+                        <div class="col-1-4">
+                            <h4> Subject: </h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextBoxFor(x => x.Title, new { @class = "text_box" })</div><br>
+                    </div>
+                    <div class="row">
+                        <div class="col-1-4">
+                            <h4>*Message: </h4>
+                        </div>
+                        <div class="col-3-4">@Html.TextAreaFor(x => x.Text, new { @class = "text_box" })</div><br>
+                    </div>
+            }
+            <h4 style="margin: 10px 0 0 -20px">Fields marked by asterisk (*) are mandatory.</h4>
+        </div>
+
+
+    }
+</div>

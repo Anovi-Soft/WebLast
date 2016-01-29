@@ -1,0 +1,43 @@
+﻿@model AnoviSoftSiteFun.Models.RegisterViewModel
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="paper_group">
+    <div class="paper">
+        @using (Html.BeginForm("Register", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post))
+        {
+        <div class="paper_up">
+            <div class="row">
+                <div class="col-5-6">
+                    <h1>Create a new account</h1>
+                </div>
+                <div class="col-1-8">
+                    <button type="submit" value="Log in" class="bar_button">Reg</button>
+                </div>
+            </div>
+        </div>
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary()
+
+            <div class="row">
+                <div class="col-1-4">
+                    <h4>Email:</h4>
+                </div>
+                <div class="col-3-4">@Html.TextBoxFor(x => x.Email, new { @class = "text_box" })</div><br>
+            </div>
+            <div class="row">
+                <div class="col-1-4">
+                    <h4>Password:</h4>
+                </div>
+                <div class="col-3-4">@Html.PasswordFor(x => x.Password, new { @class = "text_box" })</div><br>
+            </div>
+            <div class="row">
+                <div class="col-1-4">
+                    <h4>Confirm Password:</h4>
+                </div>
+                <div class="col-3-4">@Html.PasswordFor(x => x.ConfirmPassword, new { @class = "text_box" })</div><br>
+            </div>
+        }
+    </div>
+</div>
